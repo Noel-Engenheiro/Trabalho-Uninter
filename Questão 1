@@ -1,0 +1,45 @@
+Enunciado: Imagina-se que você é um dos programadores responsáveis pela construção de app de vendas para uma determinada empresa X que vende em atacado. Para calcular o valor total que o deve-se levar em consideração o custo de embalagem conforme a tabela abaixo
+Quantidade
+Custo Embalagem para Frete
+0 <= quantidade < 11
+R$ 30.00
+11 <= quantidade < 101
+R$ 60.00
+101 <= quantidade < 1001
+R$ 120.00
+quantidade >= 1001
+R$ 240.00
+Elabore um programa em Python que:
+    1. Entre com o valor unitário do produto (Lembrar que número decimal é feito com PONTO e não VÍRGULA);
+    2. Entre com a quantidade desse produto;
+    3. O programa deve retornar o valor total sem o frete;
+    4. O programa deve retornar o valor total após o frete;
+    5. Deve-se utilizar estruturas if, elif e else (EXIGÊNCIA 1 de 1);
+    6. Colocar um exemplo de SAIDA DE CONSOLE de compra de mais de 1000 und. 
+
+print ("Bem vindo a loja do Gustavo Fernandes dos Santos e RU: 3924514")
+valor_Do_Produto = float(input("Adicione o valor do produto : "))
+quantidade_De_Produto = int(input("Adicione a quantidade do produto : "))
+
+
+if  0 <=quantidade_De_Produto < 11 :
+    total = float(valor_Do_Produto * quantidade_De_Produto)
+    com_Frete = float(total + 30)
+    print("O valor com frete : {:.2f}".format(com_Frete))
+    print("O valor sem frete : {:.2f}".format(total))
+
+elif 11 <= quantidade_De_Produto < 101 :
+    total = float(valor_Do_Produto * quantidade_De_Produto)
+    com_Frete = float(total + 60.00)
+    print("O valor com frete : {:.2f}".format(com_Frete))
+    print("O valor sem frete : {:.2f}".format(total))
+elif 101 <= quantidade_De_Produto < 1001:
+    total = float(valor_Do_Produto * quantidade_De_Produto)
+    com_Frete = float(total + 120)
+    print("O valor com frete : {:.2f}".format(com_Frete))
+    print("O valor sem frete : {:.2f}".format(total))
+else :
+    total = float(valor_Do_Produto * quantidade_De_Produto)
+    com_Frete = float(total + 240)
+    print("O valor com frete : {:.2f}".format(com_Frete))
+    print("O valor sem frete : {:.2f}".format(total))
