@@ -1,3 +1,5 @@
+PERGUNTA 
+----------------------------------------------------------------------------------------------------------------------------------------------------------
 Enunciado: Imagina-se que você é um dos programadores responsáveis pela construção de app de vendas para uma determinada empresa X que vende em atacado. Para calcular o valor total que o deve-se levar em consideração o custo de embalagem conforme a tabela abaixo
 Quantidade
 Custo Embalagem para Frete
@@ -21,7 +23,7 @@ print ("Bem vindo a loja do Gustavo Fernandes dos Santos e RU: 3924514")
 valor_Do_Produto = float(input("Adicione o valor do produto : "))
 quantidade_De_Produto = int(input("Adicione a quantidade do produto : "))
 
-Resposta 
+RESPOSTA
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 if  0 <=quantidade_De_Produto < 11 :
     total = float(valor_Do_Produto * quantidade_De_Produto)
