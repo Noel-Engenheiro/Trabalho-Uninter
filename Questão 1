@@ -21,6 +21,7 @@ print ("Bem vindo a loja do Gustavo Fernandes dos Santos e RU: 3924514")
 valor_Do_Produto = float(input("Adicione o valor do produto : "))
 quantidade_De_Produto = int(input("Adicione a quantidade do produto : "))
 
+Resposta 
 
 if  0 <=quantidade_De_Produto < 11 :
     total = float(valor_Do_Produto * quantidade_De_Produto)
