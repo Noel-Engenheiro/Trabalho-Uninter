@@ -36,11 +36,13 @@ elif 11 <= quantidade_De_Produto < 101 :
     com_Frete = float(total + 60.00)
     print("O valor com frete : {:.2f}".format(com_Frete))
     print("O valor sem frete : {:.2f}".format(total))
+    
 elif 101 <= quantidade_De_Produto < 1001:
     total = float(valor_Do_Produto * quantidade_De_Produto)
     com_Frete = float(total + 120)
     print("O valor com frete : {:.2f}".format(com_Frete))
     print("O valor sem frete : {:.2f}".format(total))
+    
 else :
     total = float(valor_Do_Produto * quantidade_De_Produto)
     com_Frete = float(total + 240)
