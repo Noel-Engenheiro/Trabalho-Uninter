@@ -1,0 +1,120 @@
+PERGUNTA
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Enunciado: Você e sua equipe de programadores foram contratados para desenvolver um app de vendas para uma sorveteria. Você ficou com a parte de desenvolver a interface do cliente para retirada do produto.
+A Sorveteria possui seguinte tabela com o código, descrição, tamanhos e os valores de sorvete:
+Código
+Descrição
+Tamanho P
+(500 ml)
+Tamanho M
+(1000 ml)
+Tamanho G
+(2000 ml)
+TR
+Sabores Tradicionais
+R$ 6,00
+R$ 10,00
+R$ 18,00
+ES
+Sabores Especiais
+R$ 7,00
+R$ 12,00
+R$ 21,00
+PR
+Sabores Premium
+R$ 8,00
+R$ 14,00
+R$ 24,00
+
+Elabore um programa em Python que:
+    1. Entre com o tamanho do pote de sorvete desejado;
+    2. Entre com o código do sorvete desejado;
+    3. Pergunte se o cliente quer pedir mais alguma coisa (se sim repetir a partir do item 1.  Caso contrário ir para próximo passo); 
+    4. Encerre a conta do cliente com o valor total;
+    5. Deve-se utilizar estruturas if, elif e else (EXIGÊNCIA 1 de 3);
+    6. Se a pessoa digitar um TAMANHO de sorvete e/ou   código diferente dos da tabela printar na tela: ‘TAMANHO ou CÓDIGO inválido(s)’ e voltar para o menu (EXIGÊNCIA 2 de 3);
+    7. Deve-se utilizar while, break, continue (EXIGÊNCIA 3 de 3);
+        ◦ (DICA: utilizar o continue dentro else que verifica a opção inválida)
+        ◦ (DICA: utilizar o break dentro if que verifica a opção sair)
+    8. Colocar um exemplo de SAIDA DE CONSOLE com 3 (três) sorvetes
+    9. Colocar um exemplo de SAIDA DE CONSOLE com erro tamanho
+    10. Colocar um exemplo de SAIDA DE CONSOLE com erro código
+    
+RESPOSTA 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    
+print ("Bem vindo à loja do Gustavo Fernandes dos Santos e RU: 3924514")
+print("-------------------------------------------Cardápio-------------------------------------------")
+print("| Código | Descrição            | Tamanho P (500ML) | Tamanho M (1000ML) | Tamanho G(1000ml) |")
+print("|   TR   | Sabores Tradicionais |      R$ 6,00      |      R$ 10,00      |      R$ 18,00     |")
+print("|   ES   | Sabores Especiais    |      R$ 7,00      |      R$ 12,00      |      R$ 21,00     |")
+print("|   PR   | Sabores Premium      |      R$ 8,00      |      R$ 14,00      |      R$ 24,00     |")
+print("----------------------------------------------------------------------------------------------")
+
+contador = 0
+acumulador = 0
+
+while True:
+  tamanho_Do_Pote = input("Digite o tamanho do pote desejado\n P - Pequeno\n M - Médio\n G - Grande\n ")
+  codigo_Do_Sorvete = input("Adicione o código do produto\n TR - Sabores Tradicionais\n ES - Sabores Especiais\n PR - Sabores Premium\n ")
+
+  if tamanho_Do_Pote == "P" and codigo_Do_Sorvete == "TR" :
+    contador = contador + 6
+    acumulador = 6
+    print("Você pediu um sorvete sabor TRADICIONAL de tamanho P R$ {:.2f} " .format(acumulador))
+    print("-------------------------------------------------------------------------- \n")
+  elif tamanho_Do_Pote == "M" and codigo_Do_Sorvete == "TR":
+    contador = contador + 10
+    acumulador = 10
+    print("Você pediu um sorvete sabor TRADICIONAL de tamanho M R$ {:.2f} ".format(acumulador))
+    print("-------------------------------------------------------------------------- \n")
+  elif tamanho_Do_Pote == "G" and codigo_Do_Sorvete == "TR":
+    contador = contador + 18
+    acumulador = 18
+    print("Você pediu um sorvete sabor TRADICIONAL de tamanho G R$ {:.2f} ".format(acumulador))
+    print("-------------------------------------------------------------------------- \n")
+  elif tamanho_Do_Pote == "P" and codigo_Do_Sorvete == "ES":
+    contador = contador + 7
+    acumulador = 7
+    print("Você pediu um sorvete sabor ESPECIAL de tamanho P R$ {:.2f} ".format(acumulador))
+    print("-------------------------------------------------------------------------- \n")
+  elif tamanho_Do_Pote == "M" and codigo_Do_Sorvete == "ES":
+    contador = contador + 12
+    acumulador = 12
+    print("Você pediu um sorvete sabor ESPECIAL de tamanho M R$ {:.2f} ".format(acumulador))
+    print("-------------------------------------------------------------------------- \n")
+  elif tamanho_Do_Pote == "G" and codigo_Do_Sorvete == "ES":
+    contador = contador + 21
+    acumulador = 21
+    print("Você pediu um sorvete sabor ESPECIAL de tamanho G R$ {:.2f} ".format(acumulador))
+    print("-------------------------------------------------------------------------- \n")
+  elif tamanho_Do_Pote == "P" and codigo_Do_Sorvete == "PR":
+    contador = contador + 8
+    acumulador = 8
+    print("Você pediu um sorvete sabor PREMIUM de tamanho P R$ {:.2f} ".format(acumulador))
+    print("-------------------------------------------------------------------------- \n")
+  elif tamanho_Do_Pote == "M" and codigo_Do_Sorvete == "PR":
+    contador = contador + 14
+    acumulador = 14
+    print("Você pediu um sorvete sabor PREMIUM de tamanho M R$ {:.2f} ".format(acumulador))
+    print("-------------------------------------------------------------------------- \n")
+  elif tamanho_Do_Pote == "G" and codigo_Do_Sorvete == "PR":
+    contador = contador + 24
+    acumulador = 24
+    print("Você pediu um sorvete sabor PREMIUM de tamanho G R$ {:.2f} ".format(acumulador))
+    print("-------------------------------------------------------------------------- \n")
+  else :
+    print("!!!!!!!!!!!  TAMANHO ou CÓDIGO INVÁLIDO(S) !!!!!!!!!!!")
+    print("Digite um código e tamanho válidos\n")
+    continue
+    print("--------------------------------------------------------------------------")
+  pedir_Mais_Alguma_Coisa = input("Deseja pedir mais alguma coisa S/N : \n")
+  if (pedir_Mais_Alguma_Coisa == "S"):
+     continue
+  else :
+    print("O valor a ser pago é : {} " .format(contador))
+    break
+
+
+
