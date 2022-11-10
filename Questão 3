@@ -65,10 +65,11 @@ def metragem_Limpeza():
      try :
         print("Digite números de 30m² à 699m²")
         metragem = int(input("Digite o valor da metragem da casa (em m²):"))
-        if 30 <= metragem < 300:
-            return 60 + (0.3 * metragem)
-        elif 300 <= metragem < 700:
-          return 120 + 0.5 * metragem
+        if 300 <= metragem < 700:
+            print("Serão necessários(as) dois(duas) funcionários(as) para a limpeza")
+            return 120 + 0.5 * metragem
+        elif 30 <= metragem < 300:
+          return 60 + (0.3 * metragem)
         else:
             print("!! Não aceitamos casas com metragem menor que 30m² ou maior que 700m²")
             continue
@@ -81,12 +82,14 @@ def tipo_Limpeza():
     print("---------------------- Menu 2 de 3 - Tipo de Limpeza ----------------------")
     while True:
        try:
-        print("B - Básica - Indicada para sujeiras semanais ou quinzenais")
-        print("C - Completa (30% a mais) - Indicada para sujeiras antigas e/ou não rotineiras")
+        print("\nB - Básica - Indicada para sujeiras semanais ou quinzenais")
+        print("C - Completa (30% a mais) - Indicada para sujeiras antigas e/ou não rotineiras\n ")
         tipo = input("Digite o tipo de Limpeza:")
         if tipo  == "B":
+            print("Você selecionou a limpeza BÁSICA")
             return 1
         elif tipo == "C":
+            print("Você selecionou a limpeza COMPLETA")
             return 1.3
         else:
             print("!!!!!!!!!! Opção Inválida !!!!!!!!!!")
@@ -95,9 +98,10 @@ def tipo_Limpeza():
            print("Digite um valor numérico, por favor, tente novamente.")
        continue
 
+
 def adicional_Limpeza():
     print("****************************************************************************")
-    print("---------------------- Menu 3 de 3 - Tipo de Limpeza ----------------------")
+    print("---------------------- Menu 3 de 3 - Tipo de Limpeza -----------------------")
     acumulador = 0
     while True:
        try:
@@ -105,15 +109,18 @@ def adicional_Limpeza():
         adicional = int(input("Deseja ou não algum adicional : "))
         if adicional == 1:
             acumulador = acumulador + 10
+            print(" >>1")
             continue
         elif adicional == 2:
             acumulador = acumulador + 12
+            print(" >>2")
             continue
         elif adicional == 3:
             acumulador = acumulador + 20
+            print(" >>3")
             continue
         elif adicional == 0:
-            return 0
+            return acumulador
         else:
             print("!!!!!!!!!! Opção Inválida !!!!!!!!!!")
             continue
@@ -121,11 +128,10 @@ def adicional_Limpeza():
            print("Digite um valor numérico, por favor, tente novamente.")
        continue
 
-
 metragem = metragem_Limpeza()
 tipo = tipo_Limpeza()
-acumulador = adicional_Limpeza()
+adicional = adicional_Limpeza()
 print("****************************************************************************")
-total = (metragem*tipo) + acumulador
-print("TOTAL: R$ {:.2f}" .format(total))
+total = float((metragem*tipo) + adicional)
+print("TOTAL: R$ {:.2f} " .format(total))
 print("****************************************************************************")
