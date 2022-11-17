@@ -1,1 +1,136 @@
+Pergunta
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Imagina-se que você está desenvolvendo um software de controle de funcionários para uma empresa de RH. Este software deve ter o seguinte menu e opções:
+    1. Cadastrar Funcionário
+    2. Consultar Funcionários(s)
+        1) Consultar Todas as Funcionários
+        2) Consultar Funcionário por Id
+        3) Consultar Funcionário(s) por Setor
+        4) Retornar 
+    3. Remover Funcionário
+    4. Sair
+Elabore um programa em Python que:
+    1. Deve-se codificar uma função cadastrar_funcionario(id) (EXIGÊNCIA 1);
+        ◦ Essa função recebe como parâmetro um id exclusivo para cada funcionário cadastrado (DICA: utilize um contador como parâmetro) 
+        ◦ Dentro da função perguntar o nome do funcionário;
+        ◦ Dentro da função perguntar o setor do funcionário;
+        ◦ Dentro da função perguntar o salário do funcionário
+        ◦ Cada funcionário cadastrado deve ter os seus dados armazenados num DICIONÁRIO (DICA: Conferir material escrito da p. 22 até p24  da AULA 06)
+    2. Deve-se codificar uma função consultar_funcionários()(EXIGÊNCIA 2);
+        ◦ Dentro da função ter um menu com as seguintes opções:
+            ▪ Consultar Todos os Funcionários
+            ▪ Consultar Funcionário por Id
+            ▪ Consultar Funcionário(s) por Setor
+            ▪ Retornar
+    3. Deve-se codificar uma função remover_funcionario() (EXIGÊNCIA 3);
+        ◦ Dentro da função perguntar qual o código do funcionário que se deseja remover do cadastro (da lista de dicionário)
+    4. Colocar um exemplo de SAIDA DO CONSOLE com o cadastro de 3 (ou mais) funcionários . Sendo que 2 delas do mesmo setor – ver figura 1
+    5. Colocar um exemplo de SAIDA DO CONSOLE com a consulta a todos os funcionários cadastrados – ver figura 2
+    6. Colocar um exemplo de SAIDA DO CONSOLE com uma consulta por id – ver figura 3
+    7. Colocar um exemplo de SAIDA DO CONSOLE com uma consulta por setor – ver figura 4
+    8. Colocar um exemplo de SAIDA DO CONSOLE ao remover um funcionário cadastrado e mostrando depois todos os funcionários – ver figura 5
+
+Segue os exemplos de SAIDA DE CONSOLE:
+
+Resposta 
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+print("Bem-vindo ao Controle de Funcionários do Gustavo Fernandes dos Santos RU 3924514")
+print("********************************************************************************")
+
+
+listaFuncionario = []
+def cadastrar_Funcionario(id):
+    print("********************************************************************************")
+    print("---------------------------------MENU CADASTRAR FUNCIONÁRIO---------------------------------")
+    print("Código do Funcionário {} ".format(id))
+    nome = str(input("Por favor digite o nome: "))
+    setor = str(input("Por favor digite o SETOR: "))
+    salario = float(input("Por favor digite o SALÁRIO (R$):"))
+    dicionarioFuncionario = {'id' : id,
+                            'nome' : nome,
+                            'setor' : setor,
+                            'salario': salario}
+    listaFuncionario.append(dicionarioFuncionario.copy())
+    print("Funcionário Cadastrado com SUCESSO!!!\n")
+
+def remover_Funcionario():
+ print("---------------------------------MENU REMOVER FUNCIONÁRIO---------------------------------")
+ entrada = int(input("Digite o id desejado : "))
+ for Funcionario in listaFuncionario:
+  if (Funcionario['id'] == entrada):
+   listaFuncionario.pop(Funcionario)
+   print("Funcionário deletado com sucesso")
+
+def consultar_Funcionario():
+    print("********************************************************************************")
+    print("---------------------------------MENU CONSULTAR FUNCIONÁRIO---------------------------------")
+while True:
+    try:
+           print("1-Consultar Todos os Funcionários: ")
+           print("2-Consultar Funcionários por ID: ")
+           print("3-Consultar Funcionários por SETOR: ")
+           print("4-Retornar: \n")
+           consultar = int(input("Digite a opção desejada : "))
+
+           if consultar == 1:
+             print("Todos os Funcionários Cadastrados: ")
+             for funcionario in listaFuncionario:
+               for key, value in funcionario.items():
+                 print("{} : {}" .format(key,value))
+             continue
+           elif consultar == 2:
+            print("Funcionários cadastrados por ID: ")
+            entrada = input("Digite o ID desejado: ")
+            for funcionario in listaFuncionario:
+                    if(funcionario['id'] == entrada):
+                        for key, value in funcionario.items():
+                         print("{} : {} " .format(key,value))
+           elif consultar == 3:
+            print("Funcionários cadastrados por Setor: ")
+            entrada = input("Digite o setor desejado: ")
+            for funcionario in listaFuncionario:
+                    if (funcionario['setor'] == entrada):
+                        for key,value in funcionario.items():
+                         print("{} : {} ".format(key, value))
+           elif consultar == 4:
+                print("Retornando ao Menu Principal: ")
+                break
+           else:
+            print("Digite uma opção válida")
+            continue
+    except:
+        print("Digite um valor numérico, por favor, tente novamente.")
+        continue
+
+contador_Menu = 0
+while True:
+ try:
+    print("---------------------------------MENU PRINCIPAL---------------------------------")
+    print("1-Cadastrar Funcionário: ")
+    print("2-Consultar Funcionário: ")
+    print("3-Remover Funcionário(s): ")
+    print("4-Sair\n")
+    opcao = int(input("Escolha a opção desejada: "))
+
+    if opcao == 1 :
+         contador_Menu = contador_Menu + 1
+         cadastrar_Funcionario(contador_Menu)
+    elif opcao == 2 :
+          consultar_Funcionario()
+    elif opcao == 3:
+          remover_Funcionario()
+    elif opcao == 4:
+         print("Programa encerrado")
+         break
+    else:
+        print("!!!!!!!!!! Opção Inválida !!!!!!!!!!")
+        continue
+ except:
+    print("Digite um valor numérico, por favor, tente novamente.")
+    continue
+
+
 
