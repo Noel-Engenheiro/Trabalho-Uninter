@@ -59,10 +59,12 @@ def cadastrar_Funcionario(id):
 def remover_Funcionario():
  print("---------------------------------MENU REMOVER FUNCIONÁRIO---------------------------------")
  entrada = int(input("Digite o id desejado : "))
+ i = 0
  for Funcionario in listaFuncionario:
-  if (Funcionario['id'] == entrada):
-   listaFuncionario.pop(Funcionario)
-   print("Funcionário deletado com sucesso")
+   if (Funcionario['id'] == entrada):
+     i = listaFuncionario.index(Funcionario)
+ listaFuncionario.pop(i)
+ print("Funcionário removido com sucesso {}" .format(len(listaFuncionario)))
 
 def consultar_Funcionario():
     print("********************************************************************************")
